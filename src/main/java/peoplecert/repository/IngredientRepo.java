@@ -5,6 +5,7 @@
  */
 package peoplecert.repository;
 
+import java.util.List;
 import org.springframework.stereotype.Repository;
 import peoplecert.entity.Ingredient;
 
@@ -13,7 +14,7 @@ import peoplecert.entity.Ingredient;
  * @author tzortziskapellas
  */
 @Repository
-public class IngredientsRepo extends HibernateUtil<Ingredient> implements CrudInt<Ingredient>{
+public class IngredientRepo extends HibernateUtil<Ingredient> implements CrudInt<Ingredient>{
 
     @Override
     public Ingredient find(int id) {
@@ -24,4 +25,15 @@ public class IngredientsRepo extends HibernateUtil<Ingredient> implements CrudIn
     public Ingredient save(Ingredient ingredients){
         return super.save(ingredients);
     }
+
+    @Override
+    public List<Ingredient> findall() {
+        return super.findAll("Ingredients.findAll");
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return super.delete(Ingredient.class, id);
+    }
+
 }

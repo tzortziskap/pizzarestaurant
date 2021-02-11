@@ -6,6 +6,7 @@
 package peoplecert.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -19,6 +20,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -34,6 +36,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pizza.findAll", query = "SELECT p FROM Pizza p"),
     @NamedQuery(name = "Pizza.findById", query = "SELECT p FROM Pizza p WHERE p.id = :id")})
 public class Pizza implements Serializable {
+
+    @OneToMany(mappedBy = "pizzaId")
+    private Collection<Orders> ordersCollection;
 
     @JoinTable(name = "pizza_ingredients", joinColumns = {
         @JoinColumn(name = "pizza_id", referencedColumnName = "id")}, inverseJoinColumns = {
@@ -106,6 +111,15 @@ public class Pizza implements Serializable {
 
     public void setSizeId(Size1 sizeId) {
         this.sizeId = sizeId;
+    }
+
+    @XmlTransient
+    public Collection<Orders> getOrdersCollection() {
+        return ordersCollection;
+    }
+
+    public void setOrdersCollection(Collection<Orders> ordersCollection) {
+        this.ordersCollection = ordersCollection;
     }
     
 }

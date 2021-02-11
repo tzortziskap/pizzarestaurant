@@ -6,6 +6,7 @@
 package peoplecert.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,9 +15,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,6 +33,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Payment.findById", query = "SELECT p FROM Payment p WHERE p.id = :id"),
     @NamedQuery(name = "Payment.findByPname", query = "SELECT p FROM Payment p WHERE p.pname = :pname")})
 public class Payment implements Serializable {
+
+    @OneToMany(mappedBy = "paymentId")
+    private Collection<Orders> ordersCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -87,6 +93,15 @@ public class Payment implements Serializable {
     @Override
     public String toString() {
         return "peoplecert.entity.Payment[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Orders> getOrdersCollection() {
+        return ordersCollection;
+    }
+
+    public void setOrdersCollection(Collection<Orders> ordersCollection) {
+        this.ordersCollection = ordersCollection;
     }
     
 }

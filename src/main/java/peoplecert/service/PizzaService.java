@@ -5,6 +5,7 @@
  */
 package peoplecert.service;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +23,25 @@ public class PizzaService {
     @Autowired
     private PizzaRepo pizzaRepo;
     
-    public void addPizza(Pizza pizza){
+
+    public List<Pizza> getPizzas() {
+        List<Pizza> pizzas = pizzaRepo.findall();
+        return pizzas;
+    }
+
+    public void addPizza(Pizza pizza) {
         pizzaRepo.save(pizza);
+    }
+
+    public void deletePizza(int id) {
+        pizzaRepo.delete(Pizza.class, id);
+    }
+
+    public Pizza getPizzaById(int id) {
+        return pizzaRepo.find(id);
+    }
+
+    public Pizza updatePizza(Pizza pizza) {
+        return pizzaRepo.save(pizza);
     }
 }

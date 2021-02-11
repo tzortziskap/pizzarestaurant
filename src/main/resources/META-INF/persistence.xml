@@ -8,6 +8,7 @@
     <class>peoplecert.entity.Payment</class>
     <class>peoplecert.entity.Ingredient</class>
     <class>peoplecert.entity.Size1</class>
+    <class>peoplecert.entity.Orders</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pizzasite?zeroTimezone=Europe/Athens"/>

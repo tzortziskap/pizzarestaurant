@@ -5,6 +5,7 @@
  */
 package peoplecert.repository;
 
+import java.util.List;
 import org.springframework.stereotype.Repository;
 import peoplecert.entity.Pizza;
 
@@ -25,6 +26,16 @@ public class PizzaRepo extends HibernateUtil<Pizza> implements CrudInt<Pizza>{
     public Pizza find(int id) {
         return super.find(Pizza.class, id);
 
+    }
+
+    @Override
+    public List<Pizza> findall() {
+        return super.findAll("Pizza.findAll");
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return super.delete(Pizza.class, id);
     }
     
     

@@ -5,6 +5,8 @@
  */
 package peoplecert.repository;
 
+import java.util.List;
+
 /**
  *
  * @author tzortziskapellas
@@ -12,8 +14,8 @@ package peoplecert.repository;
  */
 public interface CrudInt<E> {
     
-    E save( E e);
+    E save(E e);
     E find(int id);
-    
-    
+    boolean delete(int id);
+    List<E> findall();
 }

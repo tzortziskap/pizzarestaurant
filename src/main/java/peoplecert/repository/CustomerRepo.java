@@ -5,6 +5,7 @@
  */
 package peoplecert.repository;
 
+import java.util.List;
 import org.springframework.stereotype.Repository;
 import peoplecert.entity.Customer;
 
@@ -24,5 +25,15 @@ public class CustomerRepo extends HibernateUtil<Customer> implements CrudInt<Cus
    public Customer save(Customer customer){
        return super.save(customer);
    }
+
+    @Override
+    public List<Customer> findall() {
+        return super.findAll("Customer.findAll");
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return super.delete(Customer.class, id);
+    }
    
 }
