@@ -6,12 +6,14 @@
 package peoplecert.repository;
 
 import java.util.List;
+import org.springframework.stereotype.Repository;
 import peoplecert.entity.Payment;
 
 /**
  *
  * @author tzortziskapellas
  */
+@Repository
 public class PaymentRepo extends HibernateUtil<Payment> implements CrudInt<Payment> {
     
     @Override

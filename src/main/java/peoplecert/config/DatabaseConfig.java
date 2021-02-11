@@ -20,7 +20,7 @@ public class DatabaseConfig {
     private DataSource getDatasource(){
         DriverManagerDataSource datasource = new DriverManagerDataSource();
         datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        datasource.setUrl("jdbc:mysql://localhost:3306/pizzasite?serverTimezone=Europe/Athens");
+        datasource.setUrl("jdbc:mysql://localhost:3306/pizzarestaurant?serverTimezone=Europe/Athens");
         datasource.setUsername("root");
         datasource.setPassword("Aa284600");
         return datasource;

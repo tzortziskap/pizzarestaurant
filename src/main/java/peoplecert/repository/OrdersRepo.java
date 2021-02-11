@@ -6,12 +6,14 @@
 package peoplecert.repository;
 
 import java.util.List;
+import org.springframework.stereotype.Repository;
 import peoplecert.entity.Orders;
 
 /**
  *
  * @author tzortziskapellas
  */
+@Repository
 public class OrdersRepo extends HibernateUtil<Orders> implements CrudInt<Orders>{
 
     @Override

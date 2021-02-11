@@ -11,48 +11,45 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Pizza Restaurant</title>
     </head>
     <body>
         <h1>Choose your Pizza</h1>
-         
+
         <c:url value="/orderpizza/create" var="link"/>
-        
+
         <form action="${link}" method="POST">
             <div> 
                 <h2>Choose bread size:</h2>
-                <input type="radio" id="size" name="size" value="large">
-                <label for="size">Large</label><br>
-                <input type="radio" id="size" name="size" value="medium">
-                <label for="size">Medium</label><br>
-                <input type="radio" id="size" name="size" value="small">
-                <label for="size">Small</label>
+                <c:forEach items = "${sizes}" var = "size">
+                    <input type="radio" id="size" name="size" value="${size}">
+                    <label for="size">${size.sname}</label><br>
+                </c:forEach>
             </div>
             <div>
                 <h2>Choose ingredients:</h2>
-                <input type="checkbox" id="name" name="name" value="potatoes">
-                <label for="name">Potatoes</label><br>
-                <input type="checkbox" id="name" name="name" value="tomatoes">
-                <label for="name">Tomatoes</label><br>
-                <input type="checkbox" id="name" name="name" value="sausage">
-                <label for="name">Sausage</label><br>
+                <c:forEach items = "${ingredients}" var = "ingredient">
+                    <input type="checkbox" id="name" name="name" value="${ingredient.iname}">
+                    <label for="name">${ingredient.iname}</label><br>
+                </c:forEach>
             </div>
             <div>
                 <h2>Choose payment method:</h2>
-                <select name="paymentmethod">
+                <select name="paymentmethod"> 
                     <option id="paymentmethod" name="paymentmethod" value="null">---</option>
-                    <option id="paymentmethod" name="paymentmethod" value="creditcard">Credit Card</option>
-                    <option id="paymentmethod" name="paymentmethod" value="cash">Cash</option>
+                    <c:forEach items = "${payments}" var = "payment">
+                        <option id="paymentmethod" name="paymentmethod" value="${payment.pname}">${payment.pname}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div>
                 <h2>Your details:</h2>
-                <label for="firstname">First Name</label>
-                <input type="text" id="firstname" name="firstname" placeholder="Type your first name..."><br>
-                <label for="lastname">Last Name</label>
-                <input type="text" id="lastname" name="lastname" placeholder="Type your last name..."><br>
-                <label for="dateofbirth">Date of Birth</label>
-                <input type="date" id="dateofbirth" name="dateofbirth">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Type your name..."><br>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age"><br>
+                <label for="orderDate">Date of order:</label>
+                <input type="date" id="orderDate" name="orderDate">
             </div>  
             <% LocalDateTime ldt = LocalDateTime.now();%>
             <%=ldt%>

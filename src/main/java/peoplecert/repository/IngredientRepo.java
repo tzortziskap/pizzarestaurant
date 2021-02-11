@@ -28,7 +28,7 @@ public class IngredientRepo extends HibernateUtil<Ingredient> implements CrudInt
 
     @Override
     public List<Ingredient> findall() {
-        return super.findAll("Ingredients.findAll");
+        return super.findAll("Ingredient.findAll");
     }
 
     @Override

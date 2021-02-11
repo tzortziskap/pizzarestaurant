@@ -6,12 +6,14 @@
 package peoplecert.repository;
 
 import java.util.List;
+import org.springframework.stereotype.Repository;
 import peoplecert.entity.Size1;
 
 /**
  *
  * @author tzortziskapellas
  */
+@Repository
 public class Size1Repo extends HibernateUtil<Size1> implements CrudInt<Size1>{
 
     @Override
