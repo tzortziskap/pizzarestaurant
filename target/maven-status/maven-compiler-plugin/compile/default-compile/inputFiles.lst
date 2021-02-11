@@ -1,0 +1,17 @@
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/controller/HomeController.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/service/IngredientsService.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/config/DispatcherServletInitializer.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/controller/OrderController.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/config/MyDispatcherServletConfiguration.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/entity/Customer.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/config/DatabaseConfig.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/repository/CustomerRepo.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/repository/IngredientsRepo.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/entity/Ingredients.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/repository/CrudInt.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/repository/PizzaRepo.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/entity/Pizza.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/service/CustomerService.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/service/PizzaService.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/service/HomeService.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/repository/HibernateUtil.java
