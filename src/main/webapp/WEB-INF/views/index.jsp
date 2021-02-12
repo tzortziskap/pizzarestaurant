@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>${myMessage}</h1>
-        <a href="${pageContext.request.contextPath}/orderpizza/create">Order Pizza</a>
+        <a href="${pageContext.request.contextPath}/orderpizza">Order Pizza</a>
     </body>
 </html>

@@ -53,6 +53,10 @@ public class Size1 implements Serializable {
     public Size1() {
     }
 
+    public Size1(String sname) {
+        this.sname = sname;
+    }
+
     public Size1(Integer id) {
         this.id = id;
     }

@@ -6,16 +6,17 @@
 package peoplecert.controller;
 
 
-import java.util.List;
+
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import peoplecert.entity.Customer;
-import peoplecert.entity.Ingredient;
-import peoplecert.entity.Pizza;
+import peoplecert.entity.Orders;
 import peoplecert.service.CustomerService;
 import peoplecert.service.IngredientService;
 import peoplecert.service.PaymentService;
@@ -42,8 +43,8 @@ public class OrderController {
     private PaymentService paymentService;
    
     
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String showForm(Model model){
+    @GetMapping()
+    public String showForm(Model model, @ModelAttribute("paragelia") Orders order){
         model.addAttribute("sizes", size1Servise.getSize1s());
         model.addAttribute("ingredients", ingredientsService.getIngredients());
         model.addAttribute("payments", paymentService.getPayments());
@@ -51,11 +52,14 @@ public class OrderController {
     }
     
     
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public String create(Pizza pizza,Ingredient ingredients,Customer customer , RedirectAttributes attributes){
-        pizzaService.addPizza(pizza);
-        customerService.addCustomer(customer);
-        ingredientsService.addIngredient(ingredients);
-       return "orderdetails";//Redirect instructs client to sent a new GET request to /customer
+    @PostMapping("/create")
+   public String processOrder(@ModelAttribute("paragelia") @Valid Orders order,
+            BindingResult result){//Binding result must come after the @Valid object
+        
+        if(result.hasErrors()){
+            return "customiseYourPizza";
+        }
+        //save object in DB
+        return "orderdetails";
     }
 }

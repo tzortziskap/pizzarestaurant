@@ -122,6 +122,11 @@ public class Customer implements Serializable {
         return ordersCollection;
     }
 
+    public Customer(String cname, int cage) {
+        this.cname = cname;
+        this.cage = cage;
+    }
+
     public void setOrdersCollection(Collection<Orders> ordersCollection) {
         this.ordersCollection = ordersCollection;
     }

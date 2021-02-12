@@ -50,6 +50,10 @@ public class Payment implements Serializable {
     public Payment() {
     }
 
+    public Payment(String pname) {
+        this.pname = pname;
+    }
+
     public Payment(Integer id) {
         this.id = id;
     }

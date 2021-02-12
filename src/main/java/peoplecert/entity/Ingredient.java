@@ -50,6 +50,10 @@ public class Ingredient implements Serializable {
     @Column(name = "iname")
     private String iname;
 
+    public Ingredient(String iname) {
+        this.iname = iname;
+    }
+
     public Ingredient() {
     }
 

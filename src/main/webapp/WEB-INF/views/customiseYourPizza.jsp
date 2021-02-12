@@ -7,6 +7,7 @@
 <%@page import="java.time.LocalDateTime"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,43 +19,29 @@
 
         <c:url value="/orderpizza/create" var="link"/>
 
-        <form action="${link}" method="POST">
-            <div> 
-                <h2>Choose bread size:</h2>
-                <c:forEach items = "${sizes}" var = "size">
-                    <input type="radio" id="size" name="size" value="${size}">
-                    <label for="size">${size.sname}</label><br>
-                </c:forEach>
-            </div>
-            <div>
-                <h2>Choose ingredients:</h2>
-                <c:forEach items = "${ingredients}" var = "ingredient">
-                    <input type="checkbox" id="name" name="name" value="${ingredient.iname}">
-                    <label for="name">${ingredient.iname}</label><br>
-                </c:forEach>
-            </div>
-            <div>
-                <h2>Choose payment method:</h2>
-                <select name="paymentmethod"> 
-                    <option id="paymentmethod" name="paymentmethod" value="null">---</option>
-                    <c:forEach items = "${payments}" var = "payment">
-                        <option id="paymentmethod" name="paymentmethod" value="${payment.pname}">${payment.pname}</option>
-                    </c:forEach>
-                </select>
-            </div>
-            <div>
-                <h2>Your details:</h2>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Type your name..."><br>
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age"><br>
-                <label for="orderDate">Date of order:</label>
-                <input type="date" id="orderDate" name="orderDate">
-            </div>  
-            <% LocalDateTime ldt = LocalDateTime.now();%>
-            <%=ldt%>
-            <br>
-            <input type="submit" value="Submit"> 
-        </form> 
+
+        <form:form action = "orderpizza/create" method = "POST" modelAttribute="paragelia">
+            <h2>Choose bread size:</h2>
+            <form:radiobuttons path="pizzaId.sizeId" items="${sizes}" itemLabel="sname" itemValue="id" element = "li"/>
+            <form:errors path="pizzaId.sizeId"/>
+            <h2>Choose ingredients:</h2>
+            <c:forEach items="${ingredients}" var="ingredient">
+                <input type="checkbox" name="ingredients" value="${ingredient}">${ingredient.iname}<br/>
+            </c:forEach>
+            <h2>Choose payment method:</h2>
+            <form:select path="paymentId" items="${payments}" itemLabel="pname" itemValue="id"/>
+            <form:errors path="paymentId"/>
+            <h2>Your details:</h2>
+            Name: <form:input path="customerId.cname"/>
+            <form:errors path="customerId.cname"/>
+            <br/>
+            Age: <form:input path="customerId.cage"/>
+            <form:errors path="customerId.cage"/>
+            <br/>
+            Date of order:<form:input path="orderDate" type="date"/>
+
+            <br/>
+            <input type="submit" value="Submit"/>
+        </form:form>
     </body>
 </html>

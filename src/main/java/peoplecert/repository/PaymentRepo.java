@@ -25,6 +25,8 @@ public class PaymentRepo extends HibernateUtil<Payment> implements CrudInt<Payme
     public List<Payment> findall() {
         return super.findAll("Payment.findAll");
     }
+
+   
     
     @Override
     public Payment save(Payment payment) {
