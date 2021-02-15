@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -48,13 +49,13 @@ public class Orders implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date orderDate;
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Customer customerId;
     @JoinColumn(name = "payment_id", referencedColumnName = "id")
     @ManyToOne
     private Payment paymentId;
     @JoinColumn(name = "pizza_id", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Pizza pizzaId;
 
     public Orders() {

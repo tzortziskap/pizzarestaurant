@@ -9,6 +9,7 @@
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/repository/OrdersRepo.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/entity/Orders.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/controller/HomeController.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/converter/StringToPaymentConverter.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/repository/Size1Repo.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/controller/OrderController.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/config/MyDispatcherServletConfiguration.java
@@ -19,7 +20,9 @@
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/service/PaymentService.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/service/CustomerService.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/service/PizzaService.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/converter/StringToSizeConverter.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/entity/Size1.java
+/Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/converter/StringToIngredientConverter.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/service/HomeService.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/service/Size1Service.java
 /Users/tzortziskapellas/NetBeansProjects/PizzaProject/src/main/java/peoplecert/repository/HibernateUtil.java

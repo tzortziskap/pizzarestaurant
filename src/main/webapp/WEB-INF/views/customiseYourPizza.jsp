@@ -26,7 +26,7 @@
             <form:errors path="pizzaId.sizeId"/>
             <h2>Choose ingredients:</h2>
             <c:forEach items="${ingredients}" var="ingredient">
-                <input type="checkbox" name="ingredients" value="${ingredient}">${ingredient.iname}<br/>
+                <input type="checkbox" name="pizzaId.ingredientList" value="${ingredient.id}">${ingredient.iname}<br/>
             </c:forEach>
             <h2>Choose payment method:</h2>
             <form:select path="paymentId" items="${payments}" itemLabel="pname" itemValue="id"/>

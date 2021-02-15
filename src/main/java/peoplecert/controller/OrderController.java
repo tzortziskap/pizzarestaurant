@@ -7,11 +7,13 @@ package peoplecert.controller;
 
 
 
+import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import peoplecert.entity.Orders;
 import peoplecert.service.CustomerService;
 import peoplecert.service.IngredientService;
+import peoplecert.service.OrdersService;
 import peoplecert.service.PaymentService;
 import peoplecert.service.PizzaService;
 import peoplecert.service.Size1Service;
@@ -31,16 +34,15 @@ import peoplecert.service.Size1Service;
 @RequestMapping("/orderpizza")
 public class OrderController {
     
-    @Autowired
-    private PizzaService pizzaService;
-    @Autowired
-    private CustomerService customerService;
+   
     @Autowired
     private IngredientService ingredientsService;
     @Autowired
     private Size1Service size1Servise;
     @Autowired
     private PaymentService paymentService;
+    @Autowired
+    private OrdersService ordersService;
    
     
     @GetMapping()
@@ -57,8 +59,13 @@ public class OrderController {
             BindingResult result){//Binding result must come after the @Valid object
         
         if(result.hasErrors()){
+            List<ObjectError> errors = result.getAllErrors();
+            for(ObjectError e:errors){
+                System.out.println(">>>>>error===="+e);
+            }
             return "customiseYourPizza";
         }
+        ordersService.addOrders(order);
         //save object in DB
         return "orderdetails";
     }
